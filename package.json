@@ -1,0 +1,26 @@
+{
+  "name": "public-pantry",
+  "version": "1.0.0",
+  "description": "an app that lets users notify others when there is food growing in public space, as well as share knowledge about which plants are edible and when/how to eat them.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abbeycampbell/Public-Pantry.git"
+  },
+  "author": "A Campbell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abbeycampbell/Public-Pantry/issues"
+  },
+  "homepage": "https://github.com/abbeycampbell/Public-Pantry#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7"
+  }
+}
