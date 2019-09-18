@@ -14,6 +14,7 @@ async componentDidMount() {
     let response = await Axios.get('http://localhost:3000/entries')
     let arrayOfEntryObj = response.rows;
     this.setState({entries: arrayOfEntryObj})
+    console.log(this.state)
 }
 
 render() {

@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from './Header';
+import Map from './Map';
 
 class App extends React.Component {
     state = {}
@@ -6,8 +8,8 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {/* <Header /> contains title */}
-                {/* <Map /> renders map, contains infoBox */}
+                <Header />
+                <Map />
             </div>
 
         )
