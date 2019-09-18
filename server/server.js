@@ -1,10 +1,14 @@
 const express = require('express');
+const db = require('../db')
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+// EB URL:  PublicPantry-env-1.pgpkjhwk9z.us-west-1.elasticbeanstalk.com
+
 // REQUIRE routers
+const entryRouter = require('./routes/entryHandlers.js')
 
 // parsing request body
 app.use(bodyParser.json())
@@ -12,6 +16,7 @@ app.use(bodyParser.json())
 // handle requests for static files (HTML, JS, CSS)
 
 // DEFINE route handlers
+app.use('/entries', entryRouter)
 
 // route handler to respond with main app
 app.get('/', (req, res) => {

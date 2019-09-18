@@ -5,9 +5,19 @@ const router = express.Router();
 
 // ADD STARTER DATA REQUEST ROUTE HANDLER HERE
 
-router.get('/', fileController.getAllEntries, 
+router.get('/entries', fileController.getAllEntries, (req, res) => {
+        res.status(200).json(res.locals);
+    });
+
+
+router.get('/entry', fileController.getEntry,
     (req, res) => {
         (res.status(200).json({
-            // data here
+            // send back a specific entry
         }))
-    });
+    })
+
+
+router.post('/')
+
+    module.exports = router;
