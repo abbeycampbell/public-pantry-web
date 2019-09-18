@@ -18,10 +18,15 @@
   },
   "homepage": "https://github.com/abbeycampbell/Public-Pantry#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "google-map-react": "^1.1.4",
     "node-fetch": "^2.6.0",
+    "parcel-bundler": "^1.12.3",
     "path": "^0.12.7",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }

@@ -18,7 +18,6 @@ fileController.getAllEntries = (req, res, next) => {
     })
 }
 
-
 // GET: users should be able to get a specific entry onclick
 // fileController.getEntry = (req, res, next) => {
 //     console.log(req, req.params.id)

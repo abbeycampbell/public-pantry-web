@@ -36,6 +36,12 @@ app.post('/entries', fileController.createEntry);
 // delete an entry
 
 
+// test map route
+app.get('/test', (req, res) => {
+    
+})
+
+
 
 // catch-all route handler for any requests to an unknown route
 app.get('*', function (req, res) {
