@@ -1,27 +1,43 @@
 // DEFINE ENTRY METHODS HERE
 const fs = require('fs');
 const path = require('path');
+const pool = require('../../db/index');
+
 
 const fileController = {};
 
 // GET: users should be able to get all entries when their map first loads
 fileController.getAllEntries = (req, res, next) => {
-    fetch('client')
-    .then(res => res.json())
-    .then(res.locals[allEntries] = res.json.results)
-    console.log(res.locals.allEntries)
+    const allEntries = 'SELECT * FROM entries';
+    pool.query(allEntries, (err, data) => {
+        if(err) {
+            res.json(err);
+        } else {
+            res.json(data);
+        }
+    })
 }
 
 
 // GET: users should be able to get a specific entry onclick
-fileController.getEntry = (req, res, next) => {
-
-}
+// fileController.getEntry = (req, res, next) => {
+//     console.log(req, req.params.id)
+//     res.json(req.params)
+// }
 
 
 // POST: users should be able to create a new entry
 fileController.createEntry = (req, res, next) => {
-
+    const newEntry = 'INSERT INTO entries(type, status, lat, lng, notes) VALUES ($1, $2, $3, $4, $5)'
+    console.log(req.body)
+    const values = [req.body.type, req.body.status, req.body.lat, req.body.lng, req.body.notes];
+    pool.query(newEntry, values, (err, data) => {
+        if(err) {
+            res.json(err);
+        } else {
+            res.json('Entry Created')
+        }
+    })
 }
 
 

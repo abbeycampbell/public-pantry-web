@@ -4,25 +4,38 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
+const fileController = require('./controllers/fileController');
 
 // EB URL:  PublicPantry-env-1.pgpkjhwk9z.us-west-1.elasticbeanstalk.com
-
-// REQUIRE routers
-const entryRouter = require('./routes/entryHandlers.js')
 
 // parsing request body
 app.use(bodyParser.json())
 
 // handle requests for static files (HTML, JS, CSS)
 
-// DEFINE route handlers
-app.use('/entries', entryRouter)
-
 // route handler to respond with main app
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/index.html'))
   })
   
+// get all entries
+app.get('/entries', fileController.getAllEntries);
+
+
+// get specific entry
+// app.get('/entries/:id/', fileController.getEntry);
+
+
+// create an entry
+app.post('/entries', fileController.createEntry);
+
+
+// update an entry
+
+
+// delete an entry
+
+
 
 // catch-all route handler for any requests to an unknown route
 app.get('*', function (req, res) {
