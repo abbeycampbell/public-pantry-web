@@ -5,6 +5,7 @@ function Marker(props) {
         <button
             type="button"
             onClick={props.onClick}
+            style={{ background: 'red' }}
         >
             {props.title}
         </button>

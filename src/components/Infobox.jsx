@@ -5,7 +5,7 @@ class InfoBox extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id="infobox">
                 <ul>
                     <li>
                         Click on a marker to see what's growing

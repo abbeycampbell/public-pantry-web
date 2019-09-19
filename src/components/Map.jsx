@@ -1,7 +1,7 @@
 import React from 'react';
 import { async } from 'q';
 import Axios from 'axios';
-import Pin from './Marker';
+import Marker from './Marker';
 import InfoBox from './Infobox';
 
 
