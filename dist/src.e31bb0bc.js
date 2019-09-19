@@ -39993,7 +39993,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Location() {
   return _react.default.createElement("div", {
     style: {
-      backgroundColor: 'blue',
+      backgroundColor: 'cornflowerblue',
+      borderWidth: 2,
+      borderColor: 'white',
       height: 10,
       width: 10,
       borderRadius: 5

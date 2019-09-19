@@ -1,2 +1,4 @@
 .DS_Store
 keys.js
+node_modules
+.cache
