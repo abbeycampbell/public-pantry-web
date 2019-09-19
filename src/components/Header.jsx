@@ -2,6 +2,7 @@ import React from 'react';
 
 class Header extends React.Component {
     state = {};
+
     render() {
         return (
             <div id="header">
@@ -10,3 +11,5 @@ class Header extends React.Component {
         )
     }
 }
+
+export default Header;

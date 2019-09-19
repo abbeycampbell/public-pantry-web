@@ -1,13 +1,18 @@
 import React from 'react';
-import Header from './Header';
-import Map from './Map';
+import Header from './components/Header';
+import Googlemap from './components/Map';
+import GoogleMapReact from 'google-map-react';
 
 class App extends React.Component {
+    constructor(props, state) {
+        super(props, state);
+    }
+
     state = {}
 
     render() {
         return (
-            <div>
+            <div id="main-container">
                 <Header />
                 <Map />
             </div>

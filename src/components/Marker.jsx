@@ -10,3 +10,5 @@ function Marker(props) {
         </button>
     )
 }
+
+export default Marker;
