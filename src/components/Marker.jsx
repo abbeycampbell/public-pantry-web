@@ -1,14 +1,15 @@
 import React from 'react';
+import Fig from './Fig'
 
-function Marker({index, title, onClick}) {
+function Marker({index, title, currentIndex, onClick}) {
     //console.log(props.index);
     return (
         <button
             type="button"
             onClick={() => onClick(index)}
-            style={{ backgroundColor: 'red' }}
+            style={{ backgroundColor: 'transparent', borderWidth: 0}}
         >
-            {title}
+            <Fig size={20} color={currentIndex === index ? 'green' : "#8f687a"}/>
         </button>
     )
 }

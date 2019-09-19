@@ -4,7 +4,7 @@ function Infobox({data}) {
     console.log(data);
     const {type, status, notes, posted} = data;
         return (
-            <div id="infobox">
+            <div className="box">
                 <p>{type}</p>
                 <p>{status ? 'Ready now' : 'Not ready'}</p>
                 <p>Notes: {notes}</p>

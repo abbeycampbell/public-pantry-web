@@ -7,19 +7,28 @@ import Axios from 'axios';
 import Infobox from './components/InfoBox'
 import Instructions from './components/Instructions';
 import Location from './components/Location'
+import Entrybox from './components/EntryBox'
 
 class App extends React.Component {
     constructor(props, state) {
         super(props, state);
+        this._onClick = this._onClick.bind(this);
     }
 
     state = {
         entries: [],
         currentIndex: null,
+        newLocation: null,
         coords: {
             lat: 33.987882,
             lng:-118.470715
         }
+    }
+
+    _onClick = ({x, y, lat, lng, event}) => {
+        console.log('x:', x, 'y:', y, lat, lng, 'event:', event)
+        // _onClick should generate entryBox in place of instructions
+        this.setState({newLocation: {lat: lat, lng: lng}})
     }
 
     static defaultProps = {
@@ -36,7 +45,7 @@ class App extends React.Component {
         this.setState({entries: arrayOfEntryObj});
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
-                console.log(position)
+                //console.log(position)
                 this.setState({entries: arrayOfEntryObj, coords: {lat: position.coords.latitude, lng: position.coords.longitude}})});
           } else {
             console.log("no")
@@ -54,6 +63,7 @@ class App extends React.Component {
             <div id="main-container" style={{ height: '100vh', width: '100%' }}>
                 <Header />
                 <GoogleMapReact 
+                  onClick={this._onClick}
                   bootstrapURLKeys={{ key: 'AIzaSyBTm-pDTSJN-wN13RALT45lCOMrueYdszY' }}
                   defaultCenter={this.props.center}
                   center={this.state.coords}
@@ -65,13 +75,14 @@ class App extends React.Component {
                       lng={entry.lng} 
                       key={index}
                       index={index}
+                      currentIndex={this.state.currentIndex}
                       onClick={this.getEntryData}
                       title={entry.type}
                       />)}
                       <Location lat={this.state.coords.lat} lng={this.state.coords.lng}/>
                       
                   </GoogleMapReact>
-                  {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : <Instructions /> }
+                  {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : this.state.newLocation !== null ? <Entrybox /> : <Instructions /> }
             </div>
 
         )
@@ -79,6 +90,13 @@ class App extends React.Component {
 }
 
 export default App;
+
+// render instructions and infor
+// {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : <Instructions /> }
+
+// render instructions, info, and entry form
+// {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : this.state.newLocation !== null ? <Entrybox /> : <Instructions /> }
+
 
 
 

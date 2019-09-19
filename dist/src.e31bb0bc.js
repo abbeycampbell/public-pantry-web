@@ -35470,7 +35470,7 @@ module.exports.default = axios;
 
 },{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"components/Marker.jsx":[function(require,module,exports) {
+},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"components/Fig.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35482,9 +35482,269 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Fig = function Fig(_ref) {
+  var size = _ref.size,
+      _ref$color = _ref.color,
+      color = _ref$color === void 0 ? "#8f687a" : _ref$color;
+  return _react.default.createElement("svg", {
+    height: size,
+    width: size,
+    viewBox: "0 0 511.996 511.996"
+  }, _react.default.createElement("path", {
+    d: "M360.556 143.115c-31.308-27.552-72.735-73.684-78.999-128.93C280.646 6.107 273.838 0 265.711 0h-22.942c-8.078 0-14.932 6.025-15.831 14.051-6.723 59.879-54.762 109.049-86.536 135.497a208.866 208.866 0 00-27.821 20.856c-.276.179-.452.291-.452.291h.127c-40.386 36.034-65.628 87.04-65.628 143.642 0 109.165 93.74 197.66 209.374 197.66s209.371-88.496 209.371-197.66c-.001-73.2-42.182-137.058-104.817-171.222z",
+    fill: color
+  }), _react.default.createElement("path", {
+    d: "M371.852 177.966h.123l-.429-.269a197.673 197.673 0 00-26.339-19.195c-31.289-25.32-79.246-73.269-82.501-131.398-.198-3.516-3.188-6.23-6.712-6.23-3.52 0-6.51 2.714-6.708 6.23-3.251 58.129-51.212 106.078-82.497 131.398a197.237 197.237 0 00-26.339 19.195l-.429.269h.123c-38.232 33.163-62.127 80.1-62.127 132.189 0 55.273 21.976 104.323 63.202 137.576 66.49 53.623 162.418 54.9 228.076.265 40.491-33.693 64.691-83.677 64.691-137.841 0-52.089-23.898-99.026-62.134-132.189z",
+    fill: "#ffe388" // where the color param was added, original color stored in callback
+
+  }), _react.default.createElement("ellipse", {
+    cx: 256.002,
+    cy: 320.021,
+    rx: 135.168,
+    ry: 126.082,
+    fill: "#f97762"
+  }), _react.default.createElement("g", {
+    fill: "#d84b35"
+  }, _react.default.createElement("circle", {
+    cx: 266.491,
+    cy: 259.697,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 291.912,
+    cy: 259.697,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 278.773,
+    cy: 309.617,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 306.396,
+    cy: 284.409,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 330.958,
+    cy: 282.916,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 306.396,
+    cy: 234.489,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 258.802,
+    cy: 284.484,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 254.21,
+    cy: 334.43,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 258.802,
+    cy: 359.627,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 306.396,
+    cy: 334.43,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 293.331,
+    cy: 384.189,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 304.194,
+    cy: 309.617,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 291.912,
+    cy: 213.41,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 283.345,
+    cy: 359.627,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 330.958,
+    cy: 334.43,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 330.958,
+    cy: 359.627,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 295.608,
+    cy: 426.632,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 318.677,
+    cy: 384.189,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 281.087,
+    cy: 405.84,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 367.802,
+    cy: 347.346,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 367.802,
+    cy: 297.698,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 355.521,
+    cy: 374.26,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 362.987,
+    cy: 267.835,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 330.958,
+    cy: 250.477,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 330.958,
+    cy: 411.552,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 343.24,
+    cy: 309.617,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 183.584,
+    cy: 286.014,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 208.994,
+    cy: 286.014,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 195.865,
+    cy: 236.068,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 223.485,
+    cy: 261.284,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 146.74,
+    cy: 275.077,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 223.485,
+    cy: 311.211,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 175.894,
+    cy: 261.206,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 159.018,
+    cy: 347.346,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 159.018,
+    cy: 386.541,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 235.77,
+    cy: 211.282,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 233.567,
+    cy: 347.346,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 221.286,
+    cy: 236.068,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 208.994,
+    cy: 332.302,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 195.865,
+    cy: 359.627,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 248.051,
+    cy: 234.489,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 223.485,
+    cy: 381.278,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 171.295,
+    cy: 311.211,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 180.448,
+    cy: 335.065,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 134.459,
+    cy: 311.211,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 248.051,
+    cy: 430.403,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 198.926,
+    cy: 393.559,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 196.716,
+    cy: 418.121,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 248.051,
+    cy: 384.189,
+    r: 12.281
+  }), _react.default.createElement("circle", {
+    cx: 223.485,
+    cy: 418.121,
+    r: 12.281
+  })), _react.default.createElement("path", {
+    d: "M198.926 128.74C144.65 175.599 89.631 214.832 81.03 288.168c-8.791 74.968 29.695 148.674 97.44 181.971 45.631 22.427 112.364 31.998 207.075-.571 3.707-2.762 7.346-5.603 10.844-8.593-86.655 25.04-148.651 15.876-191.789-4.151-67.745-31.45-106.231-101.064-97.44-171.877 8.601-69.271 63.62-106.328 117.896-150.589 48.02-39.158 54.28-94.733 52.835-128.636C274.95 2.225 270.583 0 265.711 0h-13.786c.251 36.19-8.167 90.03-52.999 128.74z",
+    opacity: 0.1
+  }), _react.default.createElement("path", {
+    d: "M178.47 470.136c-67.745-33.297-106.231-107-97.44-181.971 8.601-73.333 63.62-112.565 117.896-159.424C243.758 90.03 252.176 36.19 251.922 0h-9.157c-8.078 0-14.932 6.025-15.831 14.051-6.723 59.879-54.762 109.049-86.536 135.497a208.866 208.866 0 00-27.821 20.856c-.276.179-.452.291-.452.291h.127c-40.386 36.034-65.628 87.04-65.628 143.642 0 109.165 93.74 197.66 209.374 197.66 48.923 0 93.893-15.887 129.539-42.436-94.707 32.573-161.436 23.006-207.067.575z",
+    opacity: 0.2
+  }), _react.default.createElement("g", {
+    opacity: 0.3,
+    fill: "#fff"
+  }, _react.default.createElement("circle", {
+    cx: 392.663,
+    cy: 201.688,
+    r: 24.88
+  }), _react.default.createElement("circle", {
+    cx: 422.19,
+    cy: 255.181,
+    r: 12.442
+  })));
+};
+
+var _default = Fig;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"components/Marker.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Fig = _interopRequireDefault(require("./Fig"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function Marker(_ref) {
   var index = _ref.index,
       title = _ref.title,
+      currentIndex = _ref.currentIndex,
       _onClick = _ref.onClick;
   //console.log(props.index);
   return _react.default.createElement("button", {
@@ -35493,14 +35753,18 @@ function Marker(_ref) {
       return _onClick(index);
     },
     style: {
-      backgroundColor: 'red'
+      backgroundColor: 'transparent',
+      borderWidth: 0
     }
-  }, title);
+  }, _react.default.createElement(_Fig.default, {
+    size: 20,
+    color: currentIndex === index ? 'green' : "#8f687a"
+  }));
 }
 
 var _default = Marker;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/Instructions.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Fig":"components/Fig.jsx"}],"components/Instructions.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35514,8 +35778,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Instructions(props) {
   return _react.default.createElement("div", {
-    id: "instructions"
-  }, _react.default.createElement("ul", null, _react.default.createElement("li", null, "Click on a marker to see what's growing"), _react.default.createElement("li", null, "Click anywhere to tell us what's growing")));
+    className: "box"
+  }, _react.default.createElement("ul", null, _react.default.createElement("li", null, "Click on a marker to see what's growing"), _react.default.createElement("li", null, "Click anywhere to tell others what's growing")));
 }
 
 var _default = Instructions;
@@ -39971,7 +40235,7 @@ function Infobox(_ref) {
       notes = data.notes,
       posted = data.posted;
   return _react.default.createElement("div", {
-    id: "infobox"
+    className: "box"
   }, _react.default.createElement("p", null, type), _react.default.createElement("p", null, status ? 'Ready now' : 'Not ready'), _react.default.createElement("p", null, "Notes: ", notes), _react.default.createElement("p", null, posted));
 }
 
@@ -39994,18 +40258,211 @@ function Location() {
   return _react.default.createElement("div", {
     style: {
       backgroundColor: 'cornflowerblue',
-      borderWidth: 2,
-      borderColor: 'white',
+      border: '2px solid white',
       height: 10,
       width: 10,
-      borderRadius: 5
+      borderRadius: 50
     }
   });
 }
 
 var _default = Location;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/LabledInput.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LabeledInput =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inherits2.default)(LabeledInput, _React$Component);
+
+  function LabeledInput() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, LabeledInput);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(LabeledInput)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {});
+    return _this;
+  }
+
+  (0, _createClass2.default)(LabeledInput, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react.default.createElement("div", null, _react.default.createElement("p", null, this.props.label), _react.default.createElement("input", {
+        value: this.props.value,
+        onChange: function onChange(event) {
+          return _this2.props.updateValue(event.target.value);
+        }
+      }));
+    }
+  }]);
+  return LabeledInput;
+}(_react.default.Component);
+
+var _default = LabeledInput;
+exports.default = _default;
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js"}],"components/Button.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Button(props) {
+  return _react.default.createElement("button", {
+    type: "button",
+    onClick: props.onClick
+  }, props.title);
+}
+
+var _default = Button;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"components/EntryBox.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _LabledInput = _interopRequireDefault(require("./LabledInput"));
+
+var _Button = _interopRequireDefault(require("./Button"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Entrybox =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inherits2.default)(Entrybox, _React$Component);
+
+  function Entrybox() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, Entrybox);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Entrybox)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
+      type: '',
+      status: null,
+      notes: ''
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setType", function (value) {
+      _this.setState({
+        type: value
+      });
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setStatus", function (value) {
+      _this.setState({
+        status: value
+      });
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setNotes", function (value) {
+      _this.setState({
+        notes: value
+      });
+    });
+    return _this;
+  }
+
+  (0, _createClass2.default)(Entrybox, [{
+    key: "render",
+    // write function for submit button that will send data to back end
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "box"
+      }, _react.default.createElement(_LabledInput.default, {
+        label: "What's growing?",
+        value: this.state.type,
+        updateValue: this.setType
+      }), _react.default.createElement(_LabledInput.default, {
+        label: "Notes: (optional)",
+        value: this.state.notes,
+        updateValue: this.setNotes
+      }), _react.default.createElement(_Button.default, {
+        title: "Submit",
+        onClick: this.sendData
+      }));
+    }
+  }]);
+  return Entrybox;
+}(_react.default.Component);
+
+var _default = Entrybox;
+exports.default = _default;
+{
+  /* <form>
+                     <label for="type">What's growing?</label>
+                     <input type="text" name="type"></input>
+                      <label for="status">Is it ready now?</label>
+                     <input type="radio" name="status" value="yes">Yes</input>
+                     <input type="radio" name="status" value="no">No</input>
+                     
+                     <label for="notes">Notes: (optional)</label>
+                     <input type="text" name="notes"></input>
+                      <input type="submit" value="Submit The Form"></input>
+                  </form> */
+}
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./LabledInput":"components/LabledInput.jsx","./Button":"components/Button.jsx"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40049,6 +40506,8 @@ var _Instructions = _interopRequireDefault(require("./components/Instructions"))
 
 var _Location = _interopRequireDefault(require("./components/Location"));
 
+var _EntryBox = _interopRequireDefault(require("./components/EntryBox"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App =
@@ -40064,10 +40523,26 @@ function (_React$Component) {
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
       entries: [],
       currentIndex: null,
+      newLocation: null,
       coords: {
         lat: 33.987882,
         lng: -118.470715
       }
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "_onClick", function (_ref) {
+      var x = _ref.x,
+          y = _ref.y,
+          lat = _ref.lat,
+          lng = _ref.lng,
+          event = _ref.event;
+      console.log('x:', x, 'y:', y, lat, lng, 'event:', event); // _onClick should generate entryBox in place of instructions
+
+      _this.setState({
+        newLocation: {
+          lat: lat,
+          lng: lng
+        }
+      });
     });
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "getEntryData", function (currentIndex) {
       // displays type, status, notes, timestamp
@@ -40075,6 +40550,7 @@ function (_React$Component) {
         currentIndex: currentIndex
       });
     });
+    _this._onClick = _this._onClick.bind((0, _assertThisInitialized2.default)(_this));
     return _this;
   }
 
@@ -40105,8 +40581,7 @@ function (_React$Component) {
 
                 if (navigator.geolocation) {
                   navigator.geolocation.getCurrentPosition(function (position) {
-                    console.log(position);
-
+                    //console.log(position)
                     _this2.setState({
                       entries: arrayOfEntryObj,
                       coords: {
@@ -40146,6 +40621,7 @@ function (_React$Component) {
           width: '100%'
         }
       }, _react.default.createElement(_Header.default, null), _react.default.createElement(_googleMapReact.default, {
+        onClick: this._onClick,
         bootstrapURLKeys: {
           key: 'AIzaSyBTm-pDTSJN-wN13RALT45lCOMrueYdszY'
         },
@@ -40158,6 +40634,7 @@ function (_React$Component) {
           lng: entry.lng,
           key: index,
           index: index,
+          currentIndex: _this3.state.currentIndex,
           onClick: _this3.getEntryData,
           title: entry.type
         });
@@ -40166,7 +40643,7 @@ function (_React$Component) {
         lng: this.state.coords.lng
       })), this.state.currentIndex !== null ? _react.default.createElement(_InfoBox.default, {
         data: this.state.entries[this.state.currentIndex]
-      }) : _react.default.createElement(_Instructions.default, null));
+      }) : this.state.newLocation !== null ? _react.default.createElement(_EntryBox.default, null) : _react.default.createElement(_Instructions.default, null));
     }
   }]);
   return App;
@@ -40179,14 +40656,18 @@ function (_React$Component) {
   },
   zoom: 15
 });
-var _default = App; //                     <Marker
+var _default = App; // render instructions and infor
+// {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : <Instructions /> }
+// render instructions, info, and entry form
+// {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : this.state.newLocation !== null ? <Entrybox /> : <Instructions /> }
+//                     <Marker
 //                     lat={33.988100}
 //                     lng={-118.469794}
 //                     text="My Marker"
 //                     />
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./components/Header":"components/Header.jsx","./components/Map":"components/Map.jsx","google-map-react":"../node_modules/google-map-react/lib/index.js","./components/Marker":"components/Marker.jsx","axios":"../node_modules/axios/index.js","./components/InfoBox":"components/InfoBox.jsx","./components/Instructions":"components/Instructions.jsx","./components/Location":"components/Location.jsx"}],"index.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./components/Header":"components/Header.jsx","./components/Map":"components/Map.jsx","google-map-react":"../node_modules/google-map-react/lib/index.js","./components/Marker":"components/Marker.jsx","axios":"../node_modules/axios/index.js","./components/InfoBox":"components/InfoBox.jsx","./components/Instructions":"components/Instructions.jsx","./components/Location":"components/Location.jsx","./components/EntryBox":"components/EntryBox.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -40227,7 +40708,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55276" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58366" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

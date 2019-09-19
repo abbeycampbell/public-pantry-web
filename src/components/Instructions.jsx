@@ -2,13 +2,13 @@ import React from 'react';
 
 function Instructions(props) {
         return (
-            <div id="instructions">
+            <div className="box">
                 <ul>
                     <li>
                         Click on a marker to see what's growing
                     </li>
                     <li>
-                        Click anywhere to tell us what's growing
+                        Click anywhere to tell others what's growing
                     </li>
                 </ul>
             </div>
