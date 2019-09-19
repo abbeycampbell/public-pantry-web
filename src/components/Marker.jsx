@@ -1,13 +1,14 @@
 import React from 'react';
 
-function Marker(props) {
+function Marker({index, title, onClick}) {
+    //console.log(props.index);
     return (
         <button
             type="button"
-            onClick={props.onClick}
-            style={{ background: 'red' }}
+            onClick={() => onClick(index)}
+            style={{ backgroundColor: 'red' }}
         >
-            {props.title}
+            {title}
         </button>
     )
 }

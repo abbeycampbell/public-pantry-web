@@ -4,6 +4,9 @@ import Map from './components/Map';
 import GoogleMapReact from 'google-map-react';
 import Marker from './components/Marker';
 import Axios from 'axios';
+import Infobox from './components/InfoBox'
+import Instructions from './components/Instructions';
+import Location from './components/Location'
 
 class App extends React.Component {
     constructor(props, state) {
@@ -11,7 +14,12 @@ class App extends React.Component {
     }
 
     state = {
-        entries: []
+        entries: [],
+        currentIndex: null,
+        coords: {
+            lat: 33.987882,
+            lng:-118.470715
+        }
     }
 
     static defaultProps = {
@@ -20,12 +28,25 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        console.log('component mounted')
+        
         let response = await Axios.get('http://localhost:3000/entries');
         console.log('got data', response)
         let arrayOfEntryObj = response.data.rows;
         console.log('got fruits!', arrayOfEntryObj)
         this.setState({entries: arrayOfEntryObj});
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log(position)
+                this.setState({entries: arrayOfEntryObj, coords: {lat: position.coords.latitude, lng: position.coords.longitude}})});
+          } else {
+            console.log("no")
+          }
+    }
+
+    // function that will return specific data for marker
+    getEntryData = (currentIndex) => {
+        // displays type, status, notes, timestamp
+        this.setState({currentIndex: currentIndex});
     }
 
     render() {
@@ -35,19 +56,22 @@ class App extends React.Component {
                 <GoogleMapReact 
                   bootstrapURLKeys={{ key: 'AIzaSyBTm-pDTSJN-wN13RALT45lCOMrueYdszY' }}
                   defaultCenter={this.props.center}
-                  center={this.state.center}
+                  center={this.state.coords}
                   defaultZoom={this.props.zoom}
-                  onChildMouseEnter={this.onChildMouseEnter}
-                  onChildMouseLeave={this.onChildMouseLeave}
                   >
                       {this.state.entries.map((entry, index) => 
                       <Marker 
                       lat={entry.lat} 
                       lng={entry.lng} 
                       key={index}
+                      index={index}
+                      onClick={this.getEntryData}
+                      title={entry.type}
                       />)}
+                      <Location lat={this.state.coords.lat} lng={this.state.coords.lng}/>
                       
                   </GoogleMapReact>
+                  {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : <Instructions /> }
             </div>
 
         )

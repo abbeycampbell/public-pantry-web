@@ -2,7 +2,8 @@ import React from 'react';
 import { async } from 'q';
 import Axios from 'axios';
 import Marker from './Marker';
-import InfoBox from './Infobox';
+import InfoBox from './Instructions';
+import Instructions from './Instructions';
 
 
 class Map extends React.Component {
@@ -21,7 +22,7 @@ render() {
     return (
         <div id="map">
             {this.state.entries.map((entry, index) => <Marker lat={entry.lat} lng={entry.lng} key={index}/>)}
-            <InfoBox />
+            <Instructions />
         </div>
     )
 }
