@@ -27,7 +27,7 @@ fileController.getAllEntries = (req, res, next) => {
 
 // POST: users should be able to create a new entry
 fileController.createEntry = (req, res, next) => {
-    const newEntry = 'INSERT INTO entries(type, status, lat, lng, notes) VALUES ($1, $2, $3, $4, $5)'
+    const newEntry = `INSERT INTO entries(type, status, lat, lng, notes) VALUES ($1, $2, $3, $4, $5) RETURNING *`
     console.log(req.body)
     const values = [req.body.type, req.body.status, req.body.lat, req.body.lng, req.body.notes];
     pool.query(newEntry, values, (err, data) => {
@@ -38,7 +38,7 @@ fileController.createEntry = (req, res, next) => {
         }
     })
 }
-
+// when new entry is created, send back all entries so that the page can rerender with the new entry
 
 // stretch:
 // PUT: users should be able to edit entries that they authored

@@ -8,6 +8,7 @@ import Infobox from './components/InfoBox'
 import Instructions from './components/Instructions';
 import Location from './components/Location'
 import Entrybox from './components/EntryBox'
+import { stat } from 'fs';
 
 class App extends React.Component {
     constructor(props, state) {
@@ -28,7 +29,7 @@ class App extends React.Component {
     _onClick = ({x, y, lat, lng, event}) => {
         console.log('x:', x, 'y:', y, lat, lng, 'event:', event)
         // _onClick should generate entryBox in place of instructions
-        this.setState({newLocation: {lat: lat, lng: lng}})
+        this.setState({newLocation: {lat: lat, lng: lng}, currentIndex: null}, console.log(this.state.newLocation))
     }
 
     static defaultProps = {
@@ -59,6 +60,11 @@ class App extends React.Component {
     }
 
     render() {
+        // logic to switch between boxes
+        // let content = null,
+        // if(this.state.newLocation !== null) {
+            
+        // }
         return (
             <div id="main-container" style={{ height: '100vh', width: '100%' }}>
                 <Header />
@@ -82,7 +88,9 @@ class App extends React.Component {
                       <Location lat={this.state.coords.lat} lng={this.state.coords.lng}/>
                       
                   </GoogleMapReact>
-                  {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : this.state.newLocation !== null ? <Entrybox /> : <Instructions /> }
+                  {this.state.currentIndex !== null
+                    ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : this.state.newLocation !== null
+                    ? <Entrybox newLocation={this.state.newLocation}/> : <Instructions /> }
             </div>
 
         )

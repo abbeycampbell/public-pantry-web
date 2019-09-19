@@ -40354,13 +40354,13 @@ function Button(props) {
 
 var _default = Button;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/EntryBox.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/Status.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = exports.Status = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
@@ -40378,9 +40378,98 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _react = _interopRequireDefault(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Status =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inherits2.default)(Status, _React$Component);
+
+  function Status() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, Status);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Status)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
+      checked: _this.props.checked
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "handleChange", function () {
+      _this.setState({
+        checked: !_this.state.checked
+      });
+    });
+    return _this;
+  }
+
+  (0, _createClass2.default)(Status, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("span", null, _react.default.createElement("input", {
+        type: "checkbox",
+        defaultChecked: this.state.checked,
+        onChange: this.handleChange,
+        name: this.props.name
+      }), " ", this.props.label);
+    }
+  }]);
+  return Status;
+}(_react.default.Component);
+
+exports.Status = Status;
+(0, _defineProperty2.default)(Status, "defaultProps", {
+  checked: false
+});
+(0, _defineProperty2.default)(Status, "propTypes", {
+  name: _propTypes.default.string.isRequired,
+  label: _propTypes.default.string.isRequired,
+  checked: _propTypes.default.bool
+});
+var _default = Status;
+exports.default = _default;
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"components/EntryBox.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
 var _LabledInput = _interopRequireDefault(require("./LabledInput"));
 
 var _Button = _interopRequireDefault(require("./Button"));
+
+var _Status = _interopRequireDefault(require("./Status"));
+
+var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40389,23 +40478,12 @@ var Entrybox =
 function (_React$Component) {
   (0, _inherits2.default)(Entrybox, _React$Component);
 
-  function Entrybox() {
-    var _getPrototypeOf2;
-
+  //const {type, status, notes, posted}
+  function Entrybox(props) {
     var _this;
 
     (0, _classCallCheck2.default)(this, Entrybox);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Entrybox)).call.apply(_getPrototypeOf2, [this].concat(args)));
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
-      type: '',
-      status: null,
-      notes: ''
-    });
+    _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Entrybox).call(this, props));
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setType", function (value) {
       _this.setState({
         type: value
@@ -40421,12 +40499,54 @@ function (_React$Component) {
         notes: value
       });
     });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "sendData",
+    /*#__PURE__*/
+    (0, _asyncToGenerator2.default)(
+    /*#__PURE__*/
+    _regenerator.default.mark(function _callee() {
+      var body, response;
+      return _regenerator.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              // send json object with type, status, lat, lng, and notes
+              // grab lat and lng from newLocation in state (id and timestamp are auto generated)
+              body = {
+                type: _this.state.type,
+                status: _this.state.status,
+                lat: _this.props.newLocation.lat,
+                lng: _this.props.newLocation.lng,
+                notes: _this.state.notes
+              };
+              console.log(body);
+              _context.next = 4;
+              return _axios.default.post('http://localhost:3000/entries', body, {
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              });
+
+            case 4:
+              response = _context.sent;
+              console.log(response.data);
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
+    _this.state = {
+      type: '',
+      status: false,
+      notes: ''
+    };
     return _this;
   }
 
   (0, _createClass2.default)(Entrybox, [{
     key: "render",
-    // write function for submit button that will send data to back end
     value: function render() {
       return _react.default.createElement("div", {
         className: "box"
@@ -40434,6 +40554,10 @@ function (_React$Component) {
         label: "What's growing?",
         value: this.state.type,
         updateValue: this.setType
+      }), _react.default.createElement(_Status.default, {
+        label: "Is it ready now?",
+        checked: false,
+        name: "status"
       }), _react.default.createElement(_LabledInput.default, {
         label: "Notes: (optional)",
         value: this.state.notes,
@@ -40449,20 +40573,9 @@ function (_React$Component) {
 
 var _default = Entrybox;
 exports.default = _default;
-{
-  /* <form>
-                     <label for="type">What's growing?</label>
-                     <input type="text" name="type"></input>
-                      <label for="status">Is it ready now?</label>
-                     <input type="radio" name="status" value="yes">Yes</input>
-                     <input type="radio" name="status" value="no">No</input>
-                     
-                     <label for="notes">Notes: (optional)</label>
-                     <input type="text" name="notes"></input>
-                      <input type="submit" value="Submit The Form"></input>
-                  </form> */
-}
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./LabledInput":"components/LabledInput.jsx","./Button":"components/Button.jsx"}],"App.jsx":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./LabledInput":"components/LabledInput.jsx","./Button":"components/Button.jsx","./Status":"components/Status.jsx","axios":"../node_modules/axios/index.js"}],"../node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
+
+},{}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40508,6 +40621,8 @@ var _Location = _interopRequireDefault(require("./components/Location"));
 
 var _EntryBox = _interopRequireDefault(require("./components/EntryBox"));
 
+var _fs = require("fs");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App =
@@ -40541,8 +40656,9 @@ function (_React$Component) {
         newLocation: {
           lat: lat,
           lng: lng
-        }
-      });
+        },
+        currentIndex: null
+      }, console.log(_this.state.newLocation));
     });
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "getEntryData", function (currentIndex) {
       // displays type, status, notes, timestamp
@@ -40614,6 +40730,10 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      // logic to switch between boxes
+      // let content = null,
+      // if(this.state.newLocation !== null) {
+      // }
       return _react.default.createElement("div", {
         id: "main-container",
         style: {
@@ -40643,7 +40763,9 @@ function (_React$Component) {
         lng: this.state.coords.lng
       })), this.state.currentIndex !== null ? _react.default.createElement(_InfoBox.default, {
         data: this.state.entries[this.state.currentIndex]
-      }) : this.state.newLocation !== null ? _react.default.createElement(_EntryBox.default, null) : _react.default.createElement(_Instructions.default, null));
+      }) : this.state.newLocation !== null ? _react.default.createElement(_EntryBox.default, {
+        newLocation: this.state.newLocation
+      }) : _react.default.createElement(_Instructions.default, null));
     }
   }]);
   return App;
@@ -40667,7 +40789,7 @@ var _default = App; // render instructions and infor
 //                     />
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./components/Header":"components/Header.jsx","./components/Map":"components/Map.jsx","google-map-react":"../node_modules/google-map-react/lib/index.js","./components/Marker":"components/Marker.jsx","axios":"../node_modules/axios/index.js","./components/InfoBox":"components/InfoBox.jsx","./components/Instructions":"components/Instructions.jsx","./components/Location":"components/Location.jsx","./components/EntryBox":"components/EntryBox.jsx"}],"index.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./components/Header":"components/Header.jsx","./components/Map":"components/Map.jsx","google-map-react":"../node_modules/google-map-react/lib/index.js","./components/Marker":"components/Marker.jsx","axios":"../node_modules/axios/index.js","./components/InfoBox":"components/InfoBox.jsx","./components/Instructions":"components/Instructions.jsx","./components/Location":"components/Location.jsx","./components/EntryBox":"components/EntryBox.jsx","fs":"../node_modules/parcel-bundler/src/builtins/_empty.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -40708,7 +40830,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58366" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64864" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -11,11 +11,23 @@ const cors = require('cors');
 
 // enable CORS
 app.use(cors());
+//app.options('*', cors());
+
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+
+// app.get('/with-cors', cors(), (req, res, next) => {
+//     res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
+//   })
 
 // parsing request body
 app.use(bodyParser.json())
 
 // handle requests for static files (HTML, JS, CSS)
+app.use(express.static(path.resolve(__dirname, '../dist')))
 
 // route handler to respond with main app
 app.get('/', (req, res) => {

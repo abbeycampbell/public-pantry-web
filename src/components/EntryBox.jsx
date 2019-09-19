@@ -1,14 +1,20 @@
 import React from 'react';
 import LabeledInput from './LabledInput';
 import Button from './Button';
+import Status from './Status';
+import axios from 'axios';
 
 class Entrybox extends React.Component {
     //const {type, status, notes, posted}
-    state = {
-        type: '',
-        status: null,
-        notes: ''
+    constructor(props) {
+        super(props);
+        this.state = {
+            type: '',
+            status: false,
+            notes: '',
+        }
     }
+    
 
     setType = (value) => {
         this.setState({ type: value })
@@ -23,7 +29,23 @@ class Entrybox extends React.Component {
       }
 
     // write function for submit button that will send data to back end
-
+    sendData = async () => { 
+        // send json object with type, status, lat, lng, and notes
+        // grab lat and lng from newLocation in state (id and timestamp are auto generated)
+        const body = { type: this.state.type,
+            status: this.state.status,
+            lat: this.props.newLocation.lat,
+            lng: this.props.newLocation.lng,
+            notes: this.state.notes
+          }
+          console.log(body);
+        const response = await axios.post(
+            'http://localhost:3000/entries',
+            body,
+            { headers: { 'Content-Type': 'application/json' } }
+          )
+          console.log(response.data)
+    }
 
       render() {
         return (
@@ -33,6 +55,13 @@ class Entrybox extends React.Component {
                     value={this.state.type} 
                     updateValue={this.setType}
                 />
+
+                <Status 
+                    label="Is it ready now?"
+                    checked={false}
+                    name="status"
+                />
+
                 <LabeledInput 
                     label="Notes: (optional)" 
                     value={this.state.notes} 
@@ -48,19 +77,3 @@ class Entrybox extends React.Component {
     }
 
 export default Entrybox;
-
-
-{/* <form>
-                    <label for="type">What's growing?</label>
-                    <input type="text" name="type"></input>
-
-                    <label for="status">Is it ready now?</label>
-                    <input type="radio" name="status" value="yes">Yes</input>
-                    <input type="radio" name="status" value="no">No</input>
-                    
-                    <label for="notes">Notes: (optional)</label>
-                    <input type="text" name="notes"></input>
-
-                    <input type="submit" value="Submit The Form"></input>
-
-                </form> */}
