@@ -20,8 +20,8 @@ class Entrybox extends React.Component {
         this.setState({ type: value })
       }
 
-    setStatus = (value) => {
-        this.setState({ status: value })
+    setStatus = () => {
+        this.setState({ status: !this.state.status })
       }  
 
     setNotes = (value) => {
@@ -44,7 +44,8 @@ class Entrybox extends React.Component {
             body,
             { headers: { 'Content-Type': 'application/json' } }
           )
-          console.log(response.data)
+          console.log('sendData', response)
+          this.props.updateEntries(response.data)
     }
 
       render() {
@@ -58,8 +59,9 @@ class Entrybox extends React.Component {
 
                 <Status 
                     label="Is it ready now?"
-                    checked={false}
+                    checked={this.state.status}
                     name="status"
+                    onChange={this.setStatus}
                 />
 
                 <LabeledInput 

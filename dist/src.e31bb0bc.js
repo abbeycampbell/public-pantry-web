@@ -31413,7 +31413,43 @@ function _asyncToGenerator(fn) {
 }
 
 module.exports = _asyncToGenerator;
-},{}],"../node_modules/@babel/runtime/helpers/classCallCheck.js":[function(require,module,exports) {
+},{}],"../node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":[function(require,module,exports) {
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+}
+
+module.exports = _arrayWithoutHoles;
+},{}],"../node_modules/@babel/runtime/helpers/iterableToArray.js":[function(require,module,exports) {
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+module.exports = _iterableToArray;
+},{}],"../node_modules/@babel/runtime/helpers/nonIterableSpread.js":[function(require,module,exports) {
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+module.exports = _nonIterableSpread;
+},{}],"../node_modules/@babel/runtime/helpers/toConsumableArray.js":[function(require,module,exports) {
+var arrayWithoutHoles = require("./arrayWithoutHoles");
+
+var iterableToArray = require("./iterableToArray");
+
+var nonIterableSpread = require("./nonIterableSpread");
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray;
+},{"./arrayWithoutHoles":"../node_modules/@babel/runtime/helpers/arrayWithoutHoles.js","./iterableToArray":"../node_modules/@babel/runtime/helpers/iterableToArray.js","./nonIterableSpread":"../node_modules/@babel/runtime/helpers/nonIterableSpread.js"}],"../node_modules/@babel/runtime/helpers/classCallCheck.js":[function(require,module,exports) {
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -35758,7 +35794,7 @@ function Marker(_ref) {
     }
   }, _react.default.createElement(_Fig.default, {
     size: 20,
-    color: currentIndex === index ? 'green' : "#8f687a"
+    color: currentIndex === index ? "#8f687a" : "yellowgreen"
   }));
 }
 
@@ -40360,21 +40396,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Status = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -40382,60 +40404,22 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Status =
-/*#__PURE__*/
-function (_React$Component) {
-  (0, _inherits2.default)(Status, _React$Component);
+function Status(_ref) {
+  var label = _ref.label,
+      checked = _ref.checked,
+      name = _ref.name,
+      onChange = _ref.onChange;
+  return _react.default.createElement("span", null, _react.default.createElement("input", {
+    type: "checkbox",
+    defaultChecked: checked,
+    onChange: onChange,
+    name: name
+  }), " ", label);
+}
 
-  function Status() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    (0, _classCallCheck2.default)(this, Status);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Status)).call.apply(_getPrototypeOf2, [this].concat(args)));
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
-      checked: _this.props.checked
-    });
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "handleChange", function () {
-      _this.setState({
-        checked: !_this.state.checked
-      });
-    });
-    return _this;
-  }
-
-  (0, _createClass2.default)(Status, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("span", null, _react.default.createElement("input", {
-        type: "checkbox",
-        defaultChecked: this.state.checked,
-        onChange: this.handleChange,
-        name: this.props.name
-      }), " ", this.props.label);
-    }
-  }]);
-  return Status;
-}(_react.default.Component);
-
-exports.Status = Status;
-(0, _defineProperty2.default)(Status, "defaultProps", {
-  checked: false
-});
-(0, _defineProperty2.default)(Status, "propTypes", {
-  name: _propTypes.default.string.isRequired,
-  label: _propTypes.default.string.isRequired,
-  checked: _propTypes.default.bool
-});
 var _default = Status;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"components/EntryBox.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"components/EntryBox.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40489,9 +40473,9 @@ function (_React$Component) {
         type: value
       });
     });
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setStatus", function (value) {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setStatus", function () {
       _this.setState({
-        status: value
+        status: !_this.state.status
       });
     });
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setNotes", function (value) {
@@ -40528,9 +40512,11 @@ function (_React$Component) {
 
             case 4:
               response = _context.sent;
-              console.log(response.data);
+              console.log('sendData', response);
 
-            case 6:
+              _this.props.updateEntries(response.data);
+
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -40556,8 +40542,9 @@ function (_React$Component) {
         updateValue: this.setType
       }), _react.default.createElement(_Status.default, {
         label: "Is it ready now?",
-        checked: false,
-        name: "status"
+        checked: this.state.status,
+        name: "status",
+        onChange: this.setStatus
       }), _react.default.createElement(_LabledInput.default, {
         label: "Notes: (optional)",
         value: this.state.notes,
@@ -40586,6 +40573,8 @@ exports.default = void 0;
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
@@ -40660,6 +40649,11 @@ function (_React$Component) {
         currentIndex: null
       }, console.log(_this.state.newLocation));
     });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "updateEntries", function (newEntries) {
+      _this.setState({
+        entries: [].concat((0, _toConsumableArray2.default)(_this.state.entries), (0, _toConsumableArray2.default)(newEntries))
+      });
+    });
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "getEntryData", function (currentIndex) {
       // displays type, status, notes, timestamp
       _this.setState({
@@ -40667,6 +40661,7 @@ function (_React$Component) {
       });
     });
     _this._onClick = _this._onClick.bind((0, _assertThisInitialized2.default)(_this));
+    _this.updateEntries = _this.updateEntries.bind((0, _assertThisInitialized2.default)(_this));
     return _this;
   }
 
@@ -40737,7 +40732,7 @@ function (_React$Component) {
       return _react.default.createElement("div", {
         id: "main-container",
         style: {
-          height: '100vh',
+          height: '65vh',
           width: '100%'
         }
       }, _react.default.createElement(_Header.default, null), _react.default.createElement(_googleMapReact.default, {
@@ -40764,7 +40759,8 @@ function (_React$Component) {
       })), this.state.currentIndex !== null ? _react.default.createElement(_InfoBox.default, {
         data: this.state.entries[this.state.currentIndex]
       }) : this.state.newLocation !== null ? _react.default.createElement(_EntryBox.default, {
-        newLocation: this.state.newLocation
+        newLocation: this.state.newLocation,
+        updateEntries: this.updateEntries
       }) : _react.default.createElement(_Instructions.default, null));
     }
   }]);
@@ -40776,7 +40772,7 @@ function (_React$Component) {
     lat: 33.987882,
     lng: -118.470715
   },
-  zoom: 15
+  zoom: 16
 });
 var _default = App; // render instructions and infor
 // {this.state.currentIndex !== null ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : <Instructions /> }
@@ -40789,7 +40785,7 @@ var _default = App; // render instructions and infor
 //                     />
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./components/Header":"components/Header.jsx","./components/Map":"components/Map.jsx","google-map-react":"../node_modules/google-map-react/lib/index.js","./components/Marker":"components/Marker.jsx","axios":"../node_modules/axios/index.js","./components/InfoBox":"components/InfoBox.jsx","./components/Instructions":"components/Instructions.jsx","./components/Location":"components/Location.jsx","./components/EntryBox":"components/EntryBox.jsx","fs":"../node_modules/parcel-bundler/src/builtins/_empty.js"}],"index.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js","./components/Header":"components/Header.jsx","./components/Map":"components/Map.jsx","google-map-react":"../node_modules/google-map-react/lib/index.js","./components/Marker":"components/Marker.jsx","axios":"../node_modules/axios/index.js","./components/InfoBox":"components/InfoBox.jsx","./components/Instructions":"components/Instructions.jsx","./components/Location":"components/Location.jsx","./components/EntryBox":"components/EntryBox.jsx","fs":"../node_modules/parcel-bundler/src/builtins/_empty.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

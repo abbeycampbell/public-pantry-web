@@ -9,7 +9,7 @@ function Marker({index, title, currentIndex, onClick}) {
             onClick={() => onClick(index)}
             style={{ backgroundColor: 'transparent', borderWidth: 0}}
         >
-            <Fig size={20} color={currentIndex === index ? 'green' : "#8f687a"}/>
+            <Fig size={20} color={currentIndex === index ? "#8f687a" : "yellowgreen"}/>
         </button>
     )
 }

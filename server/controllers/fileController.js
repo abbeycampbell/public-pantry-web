@@ -31,10 +31,11 @@ fileController.createEntry = (req, res, next) => {
     console.log(req.body)
     const values = [req.body.type, req.body.status, req.body.lat, req.body.lng, req.body.notes];
     pool.query(newEntry, values, (err, data) => {
+        console.log('returning all?', data)
         if(err) {
             res.json(err);
         } else {
-            res.json('Entry Created')
+            res.json(data.rows)
         }
     })
 }

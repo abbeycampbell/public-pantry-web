@@ -14,6 +14,7 @@ class App extends React.Component {
     constructor(props, state) {
         super(props, state);
         this._onClick = this._onClick.bind(this);
+        this.updateEntries = this.updateEntries.bind(this)
     }
 
     state = {
@@ -32,9 +33,13 @@ class App extends React.Component {
         this.setState({newLocation: {lat: lat, lng: lng}, currentIndex: null}, console.log(this.state.newLocation))
     }
 
+    updateEntries = (newEntries) => {
+        this.setState({entries: [...this.state.entries, ...newEntries]})
+    }
+
     static defaultProps = {
         center: {lat: 33.987882, lng: -118.470715},
-        zoom: 15
+        zoom: 16
     }
 
     async componentDidMount() {
@@ -66,7 +71,7 @@ class App extends React.Component {
             
         // }
         return (
-            <div id="main-container" style={{ height: '100vh', width: '100%' }}>
+            <div id="main-container" style={{ height: '65vh', width: '100%' }}>
                 <Header />
                 <GoogleMapReact 
                   onClick={this._onClick}
@@ -90,7 +95,7 @@ class App extends React.Component {
                   </GoogleMapReact>
                   {this.state.currentIndex !== null
                     ? <Infobox data={this.state.entries[this.state.currentIndex]} /> : this.state.newLocation !== null
-                    ? <Entrybox newLocation={this.state.newLocation}/> : <Instructions /> }
+                    ? <Entrybox newLocation={this.state.newLocation} updateEntries={this.updateEntries}/> : <Instructions /> }
             </div>
 
         )
